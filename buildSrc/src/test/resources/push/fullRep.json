@@ -1,0 +1,1521 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 12261933055,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 6,
+        "name": "Login with valid data",
+        "description": "",
+        "id": "login;login-with-valid-data",
+        "after": [
+          {
+            "result": {
+              "duration": 659607546,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5372035346,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "I am on existing company page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "existing",
+                  "offset": 8
+                }
+              ],
+              "location": "LoginSteps.groovy:12"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1742180179,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "I fill email and the password fields with valid data",
+            "match": {
+              "arguments": [
+                {
+                  "val": "valid",
+                  "offset": 42
+                }
+              ],
+              "location": "LoginSteps.groovy:24"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 199376182,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "I click on the login button",
+            "match": {
+              "location": "LoginSteps.groovy:29"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 9172505926,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I am logged in to the company app",
+            "match": {
+              "location": "LoginSteps.groovy:32"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 4,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 5,
+            "name": "@tid614"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 10184475694,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 14,
+        "name": "Login with invalid credentials",
+        "description": "",
+        "id": "login;login-with-invalid-credentials",
+        "after": [
+          {
+            "result": {
+              "duration": 635991903,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3625885459,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "I am on existing company page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "existing",
+                  "offset": 8
+                }
+              ],
+              "location": "LoginSteps.groovy:12"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1437561369,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "I fill email and the password fields with invalid data",
+            "match": {
+              "arguments": [
+                {
+                  "val": "invalid",
+                  "offset": 42
+                }
+              ],
+              "location": "LoginSteps.groovy:24"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 194251605,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "I click on the login button",
+            "match": {
+              "location": "LoginSteps.groovy:29"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 597481412,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I am not logged in to the company app",
+            "match": {
+              "location": "LoginSteps.groovy:35"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 12,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 13,
+            "name": "@tid618"
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 8683183915,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 22,
+        "name": "Login with deactivated user credentials",
+        "description": "",
+        "id": "login;login-with-deactivated-user-credentials",
+        "after": [
+          {
+            "result": {
+              "duration": 589626143,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2063917667,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "I am on existing company page",
+            "match": {
+              "arguments": [
+                {
+                  "val": "existing",
+                  "offset": 8
+                }
+              ],
+              "location": "LoginSteps.groovy:12"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1504297942,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "I fill email and the password fields with deactivated user data",
+            "match": {
+              "arguments": [
+                {
+                  "val": "deactivated user",
+                  "offset": 42
+                }
+              ],
+              "location": "LoginSteps.groovy:24"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 189289837,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "I click on the login button",
+            "match": {
+              "location": "LoginSteps.groovy:29"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4258874949,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "I am not logged in to the company app",
+            "match": {
+              "location": "LoginSteps.groovy:35"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 20,
+            "name": "@FUNCTIONAL"
+          },
+          {
+            "line": 21,
+            "name": "@tid2238"
+          }
+        ]
+      }
+    ],
+    "name": "Login",
+    "description": "",
+    "id": "login",
+    "keyword": "Feature",
+    "uri": "Login.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@sid128"
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 3942979205,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "There is an order created by store manager",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:28"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 8521815629,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 9,
+        "name": "Reject order by global manager",
+        "description": "",
+        "id": "order-approval;reject-order-by-global-manager",
+        "after": [
+          {
+            "result": {
+              "duration": 632807633,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 16534174941,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "I am logged in as GLOBAL_MANAGER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "GLOBAL_MANAGER",
+                  "offset": 18
+                }
+              ],
+              "location": "LoginSteps.groovy:16"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 968445243,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I open pending order",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:63"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4272229481,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I am rejecting order",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:67"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1138439265,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "order become rejected",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:72"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 7,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 8,
+            "name": "@tid663"
+          }
+        ]
+      },
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 960323923,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "There is an order created by store manager",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:28"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 8900313731,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 17,
+        "name": "Resubmit order by store manager",
+        "description": "",
+        "id": "order-approval;resubmit-order-by-store-manager",
+        "after": [
+          {
+            "result": {
+              "duration": 626076689,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 14914840166,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "I am logged in as STORE_MANAGER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "STORE_MANAGER",
+                  "offset": 18
+                }
+              ],
+              "location": "LoginSteps.groovy:16"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 466618369,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "there is order rejected by global manager",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:54"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 920366164,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I am on rejected order overview page",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:77"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1795983561,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "I am editing order",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:81"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 5717965050,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "I submit the order",
+            "match": {
+              "location": "OrderSteps.groovy:73"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 751122073,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "order get re-submitted",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:86"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 159798380,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "re-submit event is tracked in activities",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:91"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 15,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 16,
+            "name": "@tid664"
+          }
+        ]
+      },
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 1105502428,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "There is an order created by store manager",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:28"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 9141703888,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 28,
+        "name": "Approve order from store manager",
+        "description": "",
+        "id": "order-approval;approve-order-from-store-manager",
+        "after": [
+          {
+            "result": {
+              "duration": 606236253,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 15627147794,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "I am logged in as GLOBAL_MANAGER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "GLOBAL_MANAGER",
+                  "offset": 18
+                }
+              ],
+              "location": "LoginSteps.groovy:16"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1150776189,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "I open pending order",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:63"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 13828697447,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "I am approving order",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:95"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1251186993,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "order become approved",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:99"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 141506561,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "approval is tracked in activities",
+            "match": {
+              "location": "OrderApprovalSteps.groovy:104"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "line": 26,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 27,
+            "name": "@tid665"
+          }
+        ]
+      }
+    ],
+    "name": "Order approval",
+    "description": "",
+    "id": "order-approval",
+    "keyword": "Feature",
+    "uri": "OrderApproval.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@sid133"
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 16557897056,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am logged in as GLOBAL_MANAGER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "GLOBAL_MANAGER",
+                  "offset": 18
+                }
+              ],
+              "location": "LoginSteps.groovy:16"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 883254434,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I am on new order page",
+            "match": {
+              "location": "OrderSteps.groovy:58"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 8952346059,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 10,
+        "name": "Create valid order with all required data",
+        "description": "",
+        "id": "order-creation;create-valid-order-with-all-required-data",
+        "after": [
+          {
+            "result": {
+              "duration": 600926221,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 9532256803,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I fill shift fields with valid values",
+            "match": {
+              "location": "OrderSteps.groovy:64"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1959986828,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I fill required data for shift details",
+            "match": {
+              "location": "OrderSteps.groovy:69"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 3992555633,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I submit the order",
+            "match": {
+              "location": "OrderSteps.groovy:73"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 719587097,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "new order is created with required data",
+            "match": {
+              "location": "OrderSteps.groovy:77"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 8,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 9,
+            "name": "@tid648"
+          }
+        ]
+      },
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 17520191126,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am logged in as GLOBAL_MANAGER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "GLOBAL_MANAGER",
+                  "offset": 18
+                }
+              ],
+              "location": "LoginSteps.groovy:16"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 889839635,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I am on new order page",
+            "match": {
+              "location": "OrderSteps.groovy:58"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 9052485385,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 18,
+        "name": "Create valid order with several shifts",
+        "description": "",
+        "id": "order-creation;create-valid-order-with-several-shifts",
+        "after": [
+          {
+            "result": {
+              "duration": 613058872,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 18198462993,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "I create order with two shifts",
+            "match": {
+              "location": "OrderSteps.groovy:81"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1015453544,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "new order is created with required data",
+            "match": {
+              "location": "OrderSteps.groovy:77"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 16,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 17,
+            "name": "@tid649"
+          }
+        ]
+      }
+    ],
+    "name": "Order creation",
+    "description": "",
+    "id": "order-creation",
+    "keyword": "Feature",
+    "uri": "OrderCreation.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@sid130"
+      }
+    ]
+  },
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 17684462831,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am logged in as GLOBAL_MANAGER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "GLOBAL_MANAGER",
+                  "offset": 18
+                }
+              ],
+              "location": "LoginSteps.groovy:16"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 8997033690,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 9,
+        "name": "State times for finished shift",
+        "description": "",
+        "id": "set-shift-times;state-times-for-finished-shift",
+        "after": [
+          {
+            "result": {
+              "duration": 689923570,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 23476790841,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "there is finished shift without talent times",
+            "match": {
+              "arguments": [
+                {
+                  "val": "without talent times",
+                  "offset": 24
+                }
+              ],
+              "location": "ShiftManagementSteps.groovy:36"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 12171221998,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I am on page with ongoing and finished shifts",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:48"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2110120249,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I choose finished shift",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:52"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4553068313,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "state company times",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:57"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 7402992277,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "company times for shift are stated",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:61"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 7,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 8,
+            "name": "@tid1962"
+          }
+        ]
+      },
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 18401624705,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am logged in as GLOBAL_MANAGER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "GLOBAL_MANAGER",
+                  "offset": 18
+                }
+              ],
+              "location": "LoginSteps.groovy:16"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 8904045441,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 18,
+        "name": "Confirm talent times",
+        "description": "",
+        "id": "set-shift-times;confirm-talent-times",
+        "after": [
+          {
+            "result": {
+              "duration": 592756618,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 19141114911,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "there is finished shift with talent times",
+            "match": {
+              "arguments": [
+                {
+                  "val": "with talent times",
+                  "offset": 24
+                }
+              ],
+              "location": "ShiftManagementSteps.groovy:36"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 6332031212,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "I am on page with ongoing and finished shifts",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:48"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2742646748,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "I confirm talents times",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:67"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10004210166,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "company times for shift are stated equal to talent ones",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:72"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 16,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 17,
+            "name": "@tid1965"
+          }
+        ]
+      },
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 17282408558,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am logged in as GLOBAL_MANAGER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "GLOBAL_MANAGER",
+                  "offset": 18
+                }
+              ],
+              "location": "LoginSteps.groovy:16"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 8819711209,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 26,
+        "name": "Contest times",
+        "description": "",
+        "id": "set-shift-times;contest-times",
+        "after": [
+          {
+            "result": {
+              "duration": 658680991,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 14515040439,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "there is finished shift with talent times",
+            "match": {
+              "arguments": [
+                {
+                  "val": "with talent times",
+                  "offset": 24
+                }
+              ],
+              "location": "ShiftManagementSteps.groovy:36"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 6763016272,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "I am on page with ongoing and finished shifts",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:48"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2098070076,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "I choose finished shift",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:52"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 5146843179,
+              "status": "passed"
+            },
+            "line": 30,
+            "name": "I state times different to talent\u0027s ones",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:81"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8970745222,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "company times for shift are not equal to talent ones",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:85"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 24,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 25,
+            "name": "@tid1966"
+          }
+        ]
+      },
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 18186715162,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am logged in as GLOBAL_MANAGER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "GLOBAL_MANAGER",
+                  "offset": 18
+                }
+              ],
+              "location": "LoginSteps.groovy:16"
+            },
+            "keyword": "Given "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 8655579382,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 35,
+        "name": "Set rating for the shift",
+        "description": "",
+        "id": "set-shift-times;set-rating-for-the-shift",
+        "after": [
+          {
+            "result": {
+              "duration": 587782297,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 13457899967,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "there is finished shift without talent times",
+            "match": {
+              "arguments": [
+                {
+                  "val": "without talent times",
+                  "offset": 24
+                }
+              ],
+              "location": "ShiftManagementSteps.groovy:36"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 7421518695,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "I am on page with ongoing and finished shifts",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:48"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10521147344,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "state rating",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:94"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 7846365930,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "company rating for shift is stated",
+            "match": {
+              "location": "ShiftManagementSteps.groovy:98"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 33,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 34,
+            "name": "@tid1967"
+          }
+        ]
+      }
+    ],
+    "name": "Set shift times",
+    "description": "",
+    "id": "set-shift-times",
+    "keyword": "Feature",
+    "uri": "ShiftManagement.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@sid388"
+      }
+    ]
+  }
+]

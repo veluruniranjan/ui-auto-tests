@@ -1,0 +1,3 @@
+rootProject.name = 'ui-auto-tests'
+include 'testrail-sync'
+

@@ -1,0 +1,150 @@
+import com.github.jk1.license.render.CsvReportRenderer
+
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        classpath "org.codehaus.gpars:gpars:1.2.1"
+        classpath 'com.github.jk1:gradle-license-report:1.13'
+    }
+}
+
+plugins {
+    id "groovy"
+    id "idea"
+    id "maven"
+    id "com.github.spacialcircumstances.gradle-cucumber-reporting" version "0.1.15"
+    id 'com.github.jk1.dependency-license-report' version '1.13'
+    id 'com.zenjob.testrailsync'
+}
+
+apply plugin: 'com.github.jk1.dependency-license-report'
+apply plugin: 'com.zenjob.testrailsync'
+
+
+group 'ui-auto-tests'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+ext {
+    testcontainersVersion = '1.15.2'
+    seleniumVersion = '3.141.59'
+    gebVersion = '3.4'
+    cucumberJvmVersion = '1.2.2'
+    javaxVersion = '1.4.1'
+    groovyVersion = '2.5.8'
+    testRailSyncVersion = '1.1.0'
+    restAssuredVersion = '4.1.2'
+}
+
+dependencies {
+    compile "org.codehaus.groovy:groovy-all:$groovyVersion"
+    compile "org.gebish:geb-core:$gebVersion"
+    compile "org.codehaus.groovy:groovy-dateutil:$groovyVersion"
+    compile "info.cukes:cucumber-core:$cucumberJvmVersion"
+    compile "info.cukes:cucumber-groovy:$cucumberJvmVersion"
+    compile "org.testcontainers:selenium:$testcontainersVersion"
+    compile "org.seleniumhq.selenium:selenium-api:$seleniumVersion"
+    compile "org.seleniumhq.selenium:selenium-support:$seleniumVersion"
+    compile "io.rest-assured:rest-assured:$restAssuredVersion"
+
+    compile("org.gebish:geb-spock:$gebVersion") {
+        exclude module: "groovy"
+        exclude module: "groovy-all"
+    }
+
+    compile group: 'javax.mail', name: 'mail', version: javaxVersion
+    compile group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version:seleniumVersion
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.0.1'
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+}
+
+configurations {
+    cucumberRuntime {
+        extendsFrom runtime
+    }
+}
+
+licenseReport {
+    renderers = [new CsvReportRenderer()]
+}
+
+cucumberReports {
+    outputDir = file('build')
+    buildId = '0'
+    reports = files('build/reports/results.json', 'another/cucumber-json.json')
+}
+
+task runCVSTests() {
+    dependsOn compileJava, classes, assemble
+    doLast {
+        cucumberRun("company")
+    }
+}
+
+task runZVSTests() {
+    dependsOn compileJava, classes, assemble
+    doLast {
+        cucumberRun("operator")
+    }
+}
+
+task runCMGTests() {
+    dependsOn compileJava, classes, assemble
+    doLast {
+        cucumberRun("contractmanager")
+    }
+}
+
+def cucumberRun(String projectName) {
+
+    javaexec {
+        main = "cucumber.api.cli.Main"
+        classpath = configurations.cucumberRuntime + sourceSets.main.output
+
+        systemProperty "cucumber.options", System.getProperty("cucumber.options")
+        systemProperty "browser", System.getProperty("browser")
+        systemProperty "env", System.getProperty("env")
+        systemProperty "url", System.getProperty("url")
+        systemProperty "testType", System.getProperty("testType")
+
+        // Add '--glue' to step definitions and other scripts that should be included in the cucumber runtime.
+        // Arguments without '--glue' should be only the feature files
+        args = ['--plugin', 'pretty',
+
+                // json report
+                '--plugin', 'json:build/reports/results.json',
+
+                // step definitions
+                '--glue', "src/main/groovy/com/zenjob/uitests/framework/BaseSteps.groovy",
+                '--glue', "src/main/groovy/com/zenjob/uitests/apps/$projectName/steps",
+
+                // feature files
+                "src/main/groovy/com/zenjob/uitests/apps/$projectName/features",
+
+                '--tags', '~@ignore'
+
+        ]
+        if (System.getProperty("testType")) {
+            args '--tags', '@' + System.getProperty("testType")
+        }
+    }
+
+}
+
+testRailSync {
+    syncConfigFilePath = file("src/main/resources/testRailSyncData.json")
+    reportsPath = "build/reports"
+}

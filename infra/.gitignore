@@ -1,0 +1,39 @@
+# Created by https://www.gitignore.io/api/scala,intellij
+
+.idea
+*.iml
+
+.byebug_history
+.rake_tasks
+Gemfile.lock
+
+### Terraform ###
+.terraform
+
+# terraform provider locking
+.terraform.lock.hcl
+
+# All states files
+*.tfstate
+*.tfstate.backup
+
+# Local variable files for testing feature branches
+adc*tfvars
+
+# Overides for local development
+# https://www.terraform.io/docs/configuration/override.html
+override.tf
+
+# Mac
+.DS_store
+
+# terraform plan
+*.plan
+
+### Packer ###
+ami/packer-*.pem
+serverspec/reports/
+
+### Zip files
+*.zip
+!elb2logentries.zip

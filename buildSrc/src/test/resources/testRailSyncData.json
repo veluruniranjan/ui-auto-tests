@@ -1,0 +1,13 @@
+[
+  {
+    "project": 6,
+    "suites": [20],
+    "folder": "src/main/groovy/com/zenjob/uitests/apps/operator/features"
+  },
+  {
+    "project": 3,
+    "suites": [11],
+    "folder": "src/main/groovy/com/zenjob/uitests/apps/company/features"
+  }
+]
+

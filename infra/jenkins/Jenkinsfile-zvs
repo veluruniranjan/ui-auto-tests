@@ -1,0 +1,210 @@
+#!/usr/bin/env groovy
+
+String serviceName = "zvs-ui-tests"
+String repoName = "ui-auto-tests"
+String jenkinsBuildChannel = "jenkins-qa"
+jenkinsCucumberChannel = "jenkins-qa"
+String region = "eu-central-1"
+String account = "dev"
+
+String project = "Company Value stream"
+def testsMap = [
+        "SmokeTests"               : [
+                "projectName": project,
+                "suiteName"  : "Automation",
+                "tag"        : "@SMOKE",
+                "runName"    : "Automation",
+                "jenkinsNode": "jenkins-slave-qa"
+        ],
+        "SanityTests"              : [
+                "projectName": project,
+                "suiteName"  : "Automation",
+                "tag"        : "@SANITY",
+                "runName"    : "Automation",
+                "jenkinsNode": "jenkins-slave-qa"
+        ],
+        "ShiftAndOrderCancellation": [
+                "projectName": project,
+                "suiteName"  : "Automation",
+                "tag"        : "@ShiftAndOrderCancellation",
+                "runName"    : "Automation",
+                "jenkinsNode": "jenkins-slave-qa"
+        ],
+        "JobManagement"            : [
+                "projectName": project,
+                "suiteName"  : "Automation",
+                "tag"        : "@JobManagement",
+                "runName"    : "Automation",
+                "jenkinsNode": "jenkins-slave-qa"
+        ],
+        "CompanyManagement"        : [
+                "projectName": project,
+                "suiteName"  : "Automation",
+                "tag"        : "@CompanyManagement",
+                "runName"    : "Automation",
+                "jenkinsNode": "jenkins-slave-qa"
+        ],
+        "PaymentCheckInformation"  : [
+                "projectName": project,
+                "suiteName"  : "Automation",
+                "tag"        : "@PaymentCheckInfo",
+                "runName"    : "Automation",
+                "jenkinsNode": "jenkins-slave-qa"
+        ],
+        "TalentCancellation"       : [
+                "projectName": project,
+                "suiteName"  : "Automation",
+                "tag"        : "@TalentCancellation",
+                "runName"    : "Automation",
+                "jenkinsNode": "jenkins-slave-qa"
+        ],
+        "EmployeeManagement"       : [
+                "projectName": project,
+                "suiteName"  : "Automation",
+                "tag"        : "@EmployeeManagement",
+                "runName"    : "Automation",
+                "jenkinsNode": "jenkins-slave-qa"
+        ],
+        "ManualMatching"           : [
+                "projectName": project,
+                "suiteName"  : "Automation",
+                "tag"        : "@ManualMatching",
+                "runName"    : "Automation",
+                "jenkinsNode": "jenkins-slave-qa"
+        ],
+        "AutoMatching"             : [
+                "projectName": project,
+                "suiteName"  : "Automation",
+                "tag"        : "@AutoMatching",
+                "runName"    : "Automation",
+                "jenkinsNode": "jenkins-slave-qa"
+        ]
+]
+def keysTests = ["all"] + testsMap.keySet() as List
+
+
+try {
+    setProperties(numBuildKeep: "15")
+
+    stage('Set Trigger Properties') {
+        properties(
+                [
+                        parameters(
+                                [
+                                        string(name: 'RELEASE', defaultValue: 'no', description: 'Release (milestone) used for testrail'),
+                                        choice(name: 'TEST', choices: keysTests.join("\n"), description: 'Tests to run'),
+                                        choice(name: 'BUILDENV', choices: ["qa", "staging"].join("\n"), description: 'Environment'),
+                                        string(name: 'BRANCH', defaultValue: 'main', description: 'branch to be used'),
+                                ]
+                        )
+                ]
+        )
+    }
+
+    notifyBuild(channel: jenkinsBuildChannel, buildStatus: 'STARTED')
+
+    node('jenkins-slave-qa') {
+        infraSetup(account: account)
+
+        echo "ENV:${BUILDENV} RELEASE:${RELEASE} TEST:${TEST}"
+
+        lock(resource: "infra-preprod-${repoName}", inversePrecedence: false) {
+            infraPlanAndApply(
+                    account: account,
+                    environment: "qa",
+                    serviceName: repoName,
+                    state: repoName,
+                    varFile: "preprod-${region}",
+                    copyToS3: false,
+                    requireConfirmations: false
+            )
+        }
+    }
+
+    stage("Run Tests") {
+        // Change to loop later after testing
+        if (TEST == "all") {
+            def jobs = [:]
+            testsMap.each { test ->
+                if ((test.key == "SmokeTests") || (test.key == "SanityTests")) {
+                    jobs[test.key] = {
+                        node(test.value['jenkinsNode']) {
+                            lock(resource: "${test.key}-${BUILDENV}-${serviceName}", inversePrecedence: false) {
+                                infraSetup(account: "dev")
+                                try {
+                                    echo "######## STARTED ${test.key} EXECUTION #############"
+                                    runTests(BUILDENV, test.value["tag"])
+                                } catch (e) {
+                                    echo "Something failed in the test ${test.key}"
+                                }
+                                cucumberPostReports(test.key)
+                            }
+
+                            if (env.RELEASE != "no") {
+                                stage("Publish TestRail Run") {
+                                    def runId = sh(returnStdout: true, script: "toolbelt testrail.setup-release-run -p \"${test.value['projectName']}\" -m \"${RELEASE}\" -s \"${test.value['suiteName']}\" -n \"${test.value['runName']} ${RELEASE}\" | tail -1 ").trim()
+                                    env.TESTRAIL_URL = "https://zenjob.testrail.io"
+                                    sh "./gradlew postTestResults --runId=${runId}"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            parallel jobs
+
+        } else {
+            node('jenkins-slave-qa') {
+                lock(resource: "${TEST}-${BUILDENV}-${serviceName}", inversePrecedence: false) {
+                    infraSetup(account: "dev")
+                    try {
+                        runTests(BUILDENV, testsMap[TEST]['tag'])
+                    } catch (e) {
+                        echo "Something failed in the test ${TEST}"
+                    }
+                    cucumberPostReports(TEST)
+                }
+
+                if (env.RELEASE != "no") {
+                    stage("Publish TestRail Run") {
+                        def runId = sh(returnStdout: true, script: "toolbelt testrail.setup-release-run -p \"${testsMap[TEST]['projectName']}\" -m \"${RELEASE}\" -s \"${testsMap[TEST]['suiteName']}\" -n \"${testsMap[TEST]['runName']} ${RELEASE}\" | tail -1 ").trim()
+                        env.TESTRAIL_URL = "https://zenjob.testrail.io"
+                        sh "./gradlew postTestResults --runId=${runId}"
+                    }
+                }
+            }
+        }
+    }
+
+    notifyBuild(channel: jenkinsBuildChannel, buildStatus: currentBuild.result, message: "Duration: ${currentBuild.durationString}")
+
+} catch (e) {
+    catchAndTreatExceptions(
+            exceptionMessage: e,
+            jenkinsBuildChannel: jenkinsBuildChannel
+    )
+}
+
+def runTests(environment, tag) {
+    stage("Run test ${tag}") {
+        env.baseUrl = "https://ops-${environment}.preprod.zenjob.io/"
+        env.showExecution = "false"
+        env.opsDashboardUser = "test.automation@zenjob.com"
+        env.opsDashboardPassword = sh(returnStdout: true, script: "toolbelt credentials.getSecret -s preprod/ui-auto-tests/opsDashboardPassword").trim()
+        env.test_users_password = sh(returnStdout: true, script: "toolbelt credentials.getSecret -s preprod/ui-auto-tests/test_users_password").trim()
+        sh "./gradlew runZVSTests -Dcucumber.options=\"--tags ${tag}\" -Denv=${environment} -Dlocal=true"
+    }
+}
+
+def cucumberPostReports(title) {
+    stage('Cucumber report') {
+        cucumber reportTitle: title,
+                jsonReportDirectory: 'build/reports',
+                fileIncludePattern: '**/*.json',
+                trendsLimit: 0
+
+        cucumberSlackSend channel: jenkinsCucumberChannel,
+                json: 'build/reports/results.json',
+                extra: "${title}\n"
+    }
+}

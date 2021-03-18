@@ -1,0 +1,8 @@
+aws_account_name = "dev"
+namespace = "preprod"
+
+# zvs-ui-tests
+opsDashboardPassword = "AQICAHjtNu+odQZxxCLPGracuxTOT90qf1WZo/T+XQ7mo6FYawHdlVjZc1KBvbnAXtIFozX9AAAAZjBkBgkqhkiG9w0BBwagVzBVAgEAMFAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMbu21tPFl2eL3Zq+ZAgEQgCPqCH/dbKoPcl0Uxhm5ErQVcBNszAwXccDoBUSkWnCsHTy+pw=="
+
+# cvs-ui-tests
+test_users_password = "AQICAHjtNu+odQZxxCLPGracuxTOT90qf1WZo/T+XQ7mo6FYawFibg5ohfv8ZZniCb5B/Ts3AAAAZjBkBgkqhkiG9w0BBwagVzBVAgEAMFAGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQM4NkHqWdVR6FuCMtyAgEQgCMKWF4X9f72GfN5f+pELzX+mSL3c2jTY5gg8nQaQ/cMGDP3vw=="

@@ -1,0 +1,147 @@
+[
+  {
+    "line": 2,
+    "elements": [
+      {
+        "line": 4,
+        "name": "",
+        "description": "",
+        "type": "background",
+        "keyword": "Background",
+        "steps": [
+          {
+            "result": {
+              "duration": 16956953446,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "I am logged in as GLOBAL_MANAGER",
+            "match": {
+              "arguments": [
+                {
+                  "val": "GLOBAL_MANAGER",
+                  "offset": 18
+                }
+              ],
+              "location": "LoginSteps.groovy:16"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1163721698,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "I am on new order page",
+            "match": {
+              "location": "OrderSteps.groovy:58"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "before": [
+          {
+            "result": {
+              "duration": 11664554560,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:15"
+            }
+          }
+        ],
+        "line": 10,
+        "name": "Create valid order with all required data",
+        "description": "",
+        "id": "order-creation;create-valid-order-with-all-required-data",
+        "after": [
+          {
+            "result": {
+              "duration": 628850487,
+              "status": "passed"
+            },
+            "match": {
+              "location": "BaseSteps.groovy:19"
+            }
+          }
+        ],
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 5987182886,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "I fill shift fields with valid values",
+            "match": {
+              "location": "OrderSteps.groovy:64"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1930491309,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "I fill required data for shift details",
+            "match": {
+              "location": "OrderSteps.groovy:69"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4907653707,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "I submit the order",
+            "match": {
+              "location": "OrderSteps.groovy:73"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1047516068,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "new order is created with required data",
+            "match": {
+              "location": "OrderSteps.groovy:77"
+            },
+            "keyword": "Then "
+          }
+        ],
+        "tags": [
+          {
+            "line": 8,
+            "name": "@SMOKE"
+          },
+          {
+            "line": 9,
+            "name": "@tid648"
+          }
+        ]
+      }
+    ],
+    "name": "Order creation",
+    "description": "",
+    "id": "order-creation",
+    "keyword": "Feature",
+    "uri": "OrderCreation.feature",
+    "tags": [
+      {
+        "line": 1,
+        "name": "@sid130"
+      }
+    ]
+  }
+]
